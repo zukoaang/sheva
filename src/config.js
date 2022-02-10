@@ -7,7 +7,7 @@ const network = NETWORK.eth;
 // General metadata for Ethereum
 const namePrefix = "Your Collection";
 const description = "Remember to replace this description";
-const baseUri = "ipfs://NewUriToReplace";
+const baseUri = "image.png";
 
 const solanaMetadata = {
   symbol: "YC",
@@ -24,15 +24,41 @@ const solanaMetadata = {
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 5,
+    growEditionSizeTo: 100,
     layersOrder: [
       { name: "Background" },
-      { name: "Eyeball" },
-      { name: "Eye color" },
-      { name: "Iris" },
-      { name: "Shine" },
-      { name: "Bottom lid" },
-      { name: "Top lid" },
+      { name: "Outfit" },
+      { name: "Hair" },
+      { name: "Face" },
+      { name: "Mouth" },
+      { name: "Eyes" },
+      // { name: "Glasses" },
+    ],
+  },
+  {
+    growEditionSizeTo: 125,
+    layersOrder: [
+      { name: "Background" },
+      { name: "Outfit" },
+      { name: "Hair" },
+      { name: "Face" },
+      { name: "Mouth" },
+      { name: "Eyes" },
+      { name: "Glasses" },
+    ],
+  },
+  {
+    growEditionSizeTo: 150,
+    layersOrder: [
+      { name: "Background" },
+      { name: "Outfit" },
+      { name: "Hair" },
+      { name: "Face" },
+      { name: "Mouth" },
+      { name: "Eyes" },
+      { name: "Glasses" },
+      { name: "Earrings" },
+      { name: "Unique_accessories" },
     ],
   },
 ];
@@ -42,9 +68,9 @@ const shuffleLayerConfigurations = false;
 const debugLogs = false;
 
 const format = {
-  width: 512,
-  height: 512,
-  smoothing: false,
+  width: 4000,
+  height: 4000,
+  smoothing: true,
 };
 
 const gif = {
@@ -78,7 +104,28 @@ const background = {
   default: "#000000",
 };
 
-const extraMetadata = {};
+const extraMetadata = {
+  "seller_fee_basis_points": 250, // this defines your royalties (250 = 2.5% || 1000 = 10% || etc)
+  "collection": {
+    "name": "Braniacs", // the name of your collection
+    "family": "Braniacs" //the family of your collection
+  },
+  "properties": {
+    "files": [
+      {
+        "uri": "image.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "0xEbb0e214AF981339289DC8355E56231186b5A7E0", // the address you want to receive your payments
+        "share": 100
+      }
+    ]
+  }
+};
 
 const rarityDelimiter = "#";
 
